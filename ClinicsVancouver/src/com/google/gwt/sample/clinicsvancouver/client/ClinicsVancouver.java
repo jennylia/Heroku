@@ -1,9 +1,12 @@
 package com.google.gwt.sample.clinicsvancouver.client;
 
+import java.io.*;
+
 import com.google.gwt.maps.client.*;
 import com.google.gwt.maps.client.control.LargeMapControl;
 import com.google.gwt.maps.client.geom.LatLng;
 import com.google.gwt.maps.client.overlay.Marker;
+import com.google.gwt.sample.clinicsvancouver.server.RawFileReader;
 import com.google.gwt.sample.clinicsvancouver.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -54,6 +57,10 @@ public class ClinicsVancouver implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
+		
+		//RawFileReader rfr = new RawFileReader();
+		
+		
 		final Label testLabel = new Label();
 		testLabel.setText("Testing label");
 		// Add the nameField and sendButton to the RootPanel
@@ -69,6 +76,10 @@ public class ClinicsVancouver implements EntryPoint {
 		});
 		
 		//add items to panels for UI organization
+		
+	}
+	
+	private void parseTextToList(){
 		
 	}
 	
