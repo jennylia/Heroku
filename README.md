@@ -32,4 +32,6 @@ Comparable Projects:
 -Show whether the clinic is open
 -Language filter
 
+Spint Goal:
+The sprint goal for the Spint 1 is to be able to import data properly, store it and maintain it, and able to display the data is either table or map graphical formats.
 
