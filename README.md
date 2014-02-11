@@ -28,10 +28,10 @@ Deliverable:
 
 Comparable Projects: 
 -Google maps, Yelp, http://find.healthlinkbc.ca/search.aspx?q=walk-in+clinic
--We'll be able to filter our based on location
+-We'll be able to filter our clinics based on location
 -Show whether the clinic is open
 -Language filter
 
-Spint Goal:
-The sprint goal for the Spint 1 is to be able to import data properly, store it and maintain it, and able to display the data is either table or map graphical formats.
+Sprint Goal:
+The sprint goal for Sprint 1 is to be able to import data properly, store it and maintain it, and be able to display the data in either table or map graphical formats.
 
