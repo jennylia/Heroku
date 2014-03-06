@@ -1,2 +1,0 @@
-serviceClass: com.google.gwt.sample.clinicsvancouver.client.GreetingService
-path: 29C9911C1BDE33C801BC7CED46AE6A32.gwt.rpc
