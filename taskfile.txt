@@ -1,0 +1,24 @@
+Tasks for Sprint 1
+-Map Geographical Locations
+(colin)
+
+-Row/table setup
+(jenny)
+
+-Database 
+(leo)
+
+-test cases
+(colin automated nth) (jenny manual)
+
+Challenges:
+
+-jQuery on Heroku
+(Jenny nth)
+-Map bugs
+(colin)
+-Heroku Deploy
+(colin) (lat sat/sun)
+
+Display Items
+Name, Phone, Street, Website, Lat/Lon, Email
