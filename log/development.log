@@ -2942,3 +2942,47 @@ Migrating to Clinics (20140307070055)
   [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140307070055')
   [1m[36m (11.9ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-06 23:15:53 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Teng/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.3/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 15ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2014-03-06 23:15:59 -0800
+Processing by LocationsController#index as HTML
+  [1m[35mLocation Load (0.3ms)[0m  SELECT `locations`.* FROM `locations`
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `locations`.* FROM `locations`[0m
+  Rendered /Users/Teng/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (2.1ms)
+  Rendered locations/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 62ms (Views: 56.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-06 23:15:59 -0800
+
+
+Started GET "/assets/gmaps4rails.css?body=1" for 127.0.0.1 at 2014-03-06 23:15:59 -0800
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2014-03-06 23:15:59 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-06 23:15:59 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-06 23:15:59 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-06 23:15:59 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-06 23:15:59 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-06 23:15:59 -0800
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-03-06 23:15:59 -0800
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM schema_migrations[0m
