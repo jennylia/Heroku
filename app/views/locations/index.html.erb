@@ -1,6 +1,22 @@
-<h1>Listing locations</h1>
-<%= link_to("clinics", "http://pub.data.gov.bc.ca/datasets/174267/hlbc_walkinclinics.txt") %>
-<br>
+<h1>Clinics Vancouver</h1>
+
+<table border="1" style="width:300px">
+
+  <% @allClinicsData.each do |x|  %>
+  <tr>
+    <td> <%= x.RG_NAME %> </td>
+    <td> <%= x.STREET_NUMBER %>  </td> 
+    <td> <%= x.STREET_NAME %> </td>
+    <td> <%= x.STREET_TYPE %> </td>
+    <td>  <%= x.CITY %></td>
+    <td> <%= x.PROVINCE %></td>
+    <td> <%= x.POSTAL_CODE %></td>
+    <td> <%= x.WEBSITE %></td>
+    <td> <%= x.EMAIL_ADDRESS %></td>
+  </tr>
+  <% end %>
+
+</table>
 
 <table>
   <thead>

@@ -2,6 +2,7 @@
 require 'open-uri'
 
 class LocationsController < ApplicationController
+
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   # GET /locations
@@ -19,67 +20,58 @@ class LocationsController < ApplicationController
       f.readlines 
     }
 
+    #if the table Clinics is empty
     #look at each row, break it up into fields
     #place fields into database
-    @web_contents.each_with_index do |x, index|
-      puts ("\n\n\n\n")
-      #if the clinic table is empty
-      #create the row, and fill it
+    if (Clinic.find(:all).empty?)
+      
+      @web_contents.each_with_index do |x, index|
 
-      if (Clinic.find(index+1).SV_TAXONOMY == "")
-        @clinics = Clinic.new
+        #cleans up any non-utf8 text
+        x = x.encode("UTF-8", :invalid => :replace, :undef => :replace, :replace => "")
+        puts ("\n\n\n\n")
+        #if the clinic table is empty
+        #create the row, and fill it
 
         #take the line, split it by tabs
         #each line == a row in the database
         #put each field into the table row
         oneRowSplit = x.split("\t")
-        @clinics.SV_TAXONOMY = oneRowSplit.fetch(0, "out of bounds")
-        @clinics.TAXONOMY_NAME = oneRowSplit.fetch(1, "out of bounds")
-        @clinics.RG_REFERENCE = oneRowSplit.fetch(2, "out of bounds")
-        @clinics.RG_NAME = oneRowSplit.fetch(3, "out of bounds")
-        @clinics.SV_REFERENCE = oneRowSplit.fetch(4, "out of bounds")
-        @clinics.SV_NAME = oneRowSplit.fetch(5, "out of bounds")
-        @clinics.SV_DESCRIPTION = oneRowSplit.fetch(6, "out of bounds")
-        @clinics.SL_REFERENCE = oneRowSplit.fetch(7, "out of bounds")
-        @clinics.LC_REFERENCE = oneRowSplit.fetch(8, "out of bounds")
-        @clinics.PHONE_NUMBER = oneRowSplit.fetch(9, "out of bounds")
-        @clinics.WEBSITE = oneRowSplit.fetch(10, "out of bounds")
-        @clinics.EMAIL_ADDRESS = oneRowSplit.fetch(11, "out of bounds")
-        @clinics.WHEELCHAIR_ACCESSIBLE = oneRowSplit.fetch(12, "out of bounds")
-        @clinics.LANGUAGE = oneRowSplit.fetch(13, "out of bounds")
-        @clinics.HOURS = oneRowSplit.fetch(14, "out of bounds")
-        @clinics.STREET_NUMBER = oneRowSplit.fetch(15, "out of bounds")
-        @clinics.STREET_NAME = oneRowSplit.fetch(16, "out of bounds")
-        @clinics.STREET_TYPE = oneRowSplit.fetch(17, "out of bounds")
-        @clinics.STREET_DIRECTION = oneRowSplit.fetch(18, "out of bounds")
-        @clinics.CITY = oneRowSplit.fetch(19, "out of bounds")
-        @clinics.PROVINCE = oneRowSplit.fetch(20, "out of bounds")
-        @clinics.POSTAL_CODE = oneRowSplit.fetch(21, "out of bounds")
-        @clinics.LATITUDE = oneRowSplit.fetch(22, "out of bounds")
-        @clinics.LONGITUDE = oneRowSplit.fetch(23, "out of bounds")
-        #@clinics.811_LINK = oneRowSplit.fetch(24, "out of bounds")
+
+        @clinics = Clinic.new
+        @clinics.SV_TAXONOMY = oneRowSplit.fetch(0, "")
+        @clinics.TAXONOMY_NAME = oneRowSplit.fetch(1, "")
+        @clinics.RG_REFERENCE = oneRowSplit.fetch(2, "")
+        @clinics.RG_NAME = oneRowSplit.fetch(3, "")
+        @clinics.SV_REFERENCE = oneRowSplit.fetch(4, "")
+        @clinics.SV_NAME = oneRowSplit.fetch(5, "")
+        @clinics.SV_DESCRIPTION = oneRowSplit.fetch(6, "")
+        @clinics.SL_REFERENCE = oneRowSplit.fetch(7, "")
+        @clinics.LC_REFERENCE = oneRowSplit.fetch(8, "")
+        @clinics.PHONE_NUMBER = oneRowSplit.fetch(9, "")
+        @clinics.WEBSITE = oneRowSplit.fetch(10, "")
+        @clinics.EMAIL_ADDRESS = oneRowSplit.fetch(11, "")
+        @clinics.WHEELCHAIR_ACCESSIBLE = oneRowSplit.fetch(12, "")
+        @clinics.LANGUAGE = oneRowSplit.fetch(13, "")
+        @clinics.HOURS = oneRowSplit.fetch(14, "")
+        @clinics.STREET_NUMBER = oneRowSplit.fetch(15, "")
+        @clinics.STREET_NAME = oneRowSplit.fetch(16, "")
+        @clinics.STREET_TYPE = oneRowSplit.fetch(17, "")
+        @clinics.STREET_DIRECTION = oneRowSplit.fetch(18, "")
+        @clinics.CITY = oneRowSplit.fetch(19, "")
+        @clinics.PROVINCE = oneRowSplit.fetch(20, "")
+        @clinics.POSTAL_CODE = oneRowSplit.fetch(21, "")
+        @clinics.LATITUDE = oneRowSplit.fetch(22, "")
+        @clinics.LONGITUDE = oneRowSplit.fetch(23, "")
+        #@clinics.811_LINK = oneRowSplit.fetch(24, "")
         @clinics.save
-
-      #else if the clinics table is already filled
-      #do nothing  
-      else
-
-
-        #TODO: parse x by tabs, place into database table clinics
-        # x.split("\t").each do |y|
-        #   puts y
-          
-        #   @clinics = Clinic.find(index+1)
-        #   @clinics.SV_TAXONOMY = y
-          
-        # end
-        
       end
-
+        #else if the clinics table is already filled
+        #do nothing 
     end
 
     
-    puts Clinic.find(1).SV_DESCRIPTION
+    @allClinicsData = Clinic.all
     
 
 
