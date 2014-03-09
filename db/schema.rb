@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307070055) do
+ActiveRecord::Schema.define(version: 20140308200431) do
 
   create_table "clinics", force: true do |t|
     t.string   "SV_TAXONOMY"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140307070055) do
     t.string   "EMAIL_ADDRESS"
     t.string   "WHEELCHAIR_ACCESSIBLE"
     t.string   "LANGUAGE"
-    t.string   "HOURS"
+    t.text     "HOURS"
     t.string   "STREET_NUMBER"
     t.string   "STREET_NAME"
     t.string   "STREET_TYPE"
