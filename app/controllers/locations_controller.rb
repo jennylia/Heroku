@@ -65,7 +65,7 @@ class LocationsController < ApplicationController
         @clinics.LATITUDE = oneRowSplit.fetch(22, "")
         @clinics.LONGITUDE = oneRowSplit.fetch(23, "")
         #@clinics.811_LINK = oneRowSplit.fetch(24, "")
-        
+        @clinics.save
         
         #@locationLatLon = Location.new
         #@locationLatLon.longitude = 49
@@ -80,7 +80,7 @@ class LocationsController < ApplicationController
         @locationsFillTable.longitude = oneRowSplit.fetch(23, "")
         @locationsFillTable.latitude = oneRowSplit.fetch(22, "")
         @locationsFillTable.save
-        @clinics.save
+        
         # end
       end
         #else if the clinics table is already filled

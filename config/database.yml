@@ -25,8 +25,8 @@ test:
   encoding: utf8
   database: maps2_test
   pool: 5
-  username: simple_cms
-  password: secretpassword
+  username: root
+  password: beans
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -34,6 +34,6 @@ production:
   encoding: utf8
   database: maps2_production
   pool: 5
-  username: simple_cms
-  password: secretpassword
+  username: root
+  password: beans
   socket: /var/run/mysqld/mysqld.sock
