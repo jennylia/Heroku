@@ -32,6 +32,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+
+group :production do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'pg'
+end
+
 gem 'gmaps4rails'
 gem 'protected_attributes'
 
