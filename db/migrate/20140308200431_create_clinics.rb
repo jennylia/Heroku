@@ -26,8 +26,8 @@ class CreateClinics < ActiveRecord::Migration
 		t.string "CITY"
 		t.string "PROVINCE"
 		t.string "POSTAL_CODE"
-		t.integer "LATITUDE"
-		t.integer "LONGITUDE"
+		t.float "LATITUDE"
+		t.float "LONGITUDE"
 		t.string "811_LINK"
 	 	t.timestamps
      end

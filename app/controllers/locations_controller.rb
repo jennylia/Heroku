@@ -13,23 +13,24 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json {render json: @locations}
-    #variables for output of database items
-    #the web_contents ivar contains an array 
-    #of rows
-    @web_contents  = open('http://pub.data.gov.bc.ca/datasets/174267/hlbc_walkinclinics.txt') {|f| 
-      f.readlines 
-    }
 
     #if the table Clinics is empty
     #look at each row, break it up into fields
     #place fields into database
     if (Clinic.find(:all).empty?)
-      
+      #variables for output of database items
+      #the web_contents ivar contains an array 
+      #of rows
+      @web_contents  = open('http://pub.data.gov.bc.ca/datasets/174267/hlbc_walkinclinics.txt') {|f| 
+        f.readlines 
+      }
+
       @web_contents.each_with_index do |x, index|
+        
 
         #cleans up any non-utf8 text
         x = x.encode("UTF-8", :invalid => :replace, :undef => :replace, :replace => "")
-        puts ("\n\n\n\n")
+        
         #if the clinic table is empty
         #create the row, and fill it
 
@@ -37,7 +38,7 @@ class LocationsController < ApplicationController
         #each line == a row in the database
         #put each field into the table row
         oneRowSplit = x.split("\t")
-
+        
         @clinics = Clinic.new
         @clinics.SV_TAXONOMY = oneRowSplit.fetch(0, "")
         @clinics.TAXONOMY_NAME = oneRowSplit.fetch(1, "")
@@ -64,17 +65,31 @@ class LocationsController < ApplicationController
         @clinics.LATITUDE = oneRowSplit.fetch(22, "")
         @clinics.LONGITUDE = oneRowSplit.fetch(23, "")
         #@clinics.811_LINK = oneRowSplit.fetch(24, "")
+        
+        
+        #@locationLatLon = Location.new
+        #@locationLatLon.longitude = 49
+        # @locationLatLon.save
+
+        #fill the locations database with latlon locations
+        # if (!oneRowSplit[22].nil? || !oneRowSplit[23].nil?)
+
+        @locationsFillTable = Location.new
+        @locationsFillTable.name = oneRowSplit.fetch(3, "")
+        @locationsFillTable.address = oneRowSplit.fetch(15, "") + " " + oneRowSplit.fetch(16, "") + " " + oneRowSplit.fetch(17, "") + " Vancouver, BC"
+        @locationsFillTable.longitude = oneRowSplit.fetch(23, "")
+        @locationsFillTable.latitude = oneRowSplit.fetch(22, "")
+        @locationsFillTable.save
         @clinics.save
+        # end
       end
         #else if the clinics table is already filled
         #do nothing 
     end
 
-    
+    #instance variable for display on page
     @allClinicsData = Clinic.all
     
-
-
     # @clinics = Clinic.find(1)
     # @clinics.SV_TAXONOMY = "testing"
     # @clinics.TAXONOMY_NAME = "testing2"
