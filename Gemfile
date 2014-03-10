@@ -34,8 +34,7 @@ end
 
 
 group :production do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'pg'
+  gem 'pg', '0.12.2'
 end
 
 gem 'gmaps4rails'
